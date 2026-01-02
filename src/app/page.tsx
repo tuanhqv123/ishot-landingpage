@@ -55,7 +55,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f] selection:bg-blue-100 overflow-x-hidden">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 liquid-glass border-b border-white/20">
+      <nav className="fixed top-0 w-full z-50 liquid-glass">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a
             href="#"
@@ -86,7 +86,7 @@ export default function LandingPage() {
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-white/90 backdrop-blur-2xl border-b border-gray-100 py-6 px-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="md:hidden absolute top-16 left-0 w-full liquid-glass py-6 px-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
             <a
               href="#features"
               className="text-lg font-medium text-gray-600 hover:text-black transition-colors"
