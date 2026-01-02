@@ -68,13 +68,6 @@ export default function LandingPage() {
             <a href="#feedback" className="hover:text-black transition-colors">
               Feedback
             </a>
-            <button
-              onClick={handleDownload}
-              className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition-all flex items-center gap-2 shadow-lg shadow-black/10"
-            >
-              <AppleIcon size={18} />
-              Download
-            </button>
           </div>
         </div>
       </nav>
