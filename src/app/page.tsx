@@ -53,7 +53,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f] selection:bg-blue-100">
+    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f] selection:bg-blue-100 overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 liquid-glass border-b border-white/20">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -107,37 +107,37 @@ export default function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-16 items-center py-20">
+        <section className="relative min-h-screen max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-center pt-32 pb-20 overflow-hidden">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
           <div
             className="absolute top-1/2 -right-24 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl -z-10 animate-pulse"
             style={{ animationDelay: "2s" }}
           ></div>
 
-          <div className="flex flex-col justify-center space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
               Capture, Edit,{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">
                 Extract.
               </span>
             </h1>
-            <p className="text-lg lg:text-xl text-gray-500 max-w-md leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-500 max-w-md leading-relaxed">
               The fastest way to capture your screen, edit with precision, and
               instantly extract text from any where on your Mac.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button
                 onClick={handleDownload}
-                className="bg-black text-white px-10 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-2xl shadow-black/20 group"
+                className="bg-black text-white px-8 lg:px-10 py-4 rounded-2xl font-bold text-base lg:text-lg flex items-center justify-center gap-3 shadow-2xl shadow-black/20 group"
               >
                 <AppleIcon size={22} className="" />
                 Download for Mac
               </button>
             </div>
           </div>
-          <div className="relative group w-full">
-            <div className="absolute -inset-6 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-[3rem] opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
-            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl bg-white/30 backdrop-blur-2xl w-full">
+          <div className="relative group w-full max-w-[600px] lg:max-w-none mx-auto">
+            <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-[2rem] lg:rounded-[3rem] opacity-20 blur-2xl lg:blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
+            <div className="relative rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl bg-white/30 backdrop-blur-2xl w-full">
               <video
                 ref={videoRef}
                 autoPlay
@@ -145,7 +145,7 @@ export default function LandingPage() {
                 muted
                 playsInline
                 preload="auto"
-                className="w-full h-auto scale-[1.01] block"
+                className="w-full h-auto block"
               >
                 <source src="/ishot.mov" type="video/quicktime" />
                 <source src="/ishot.mov" type="video/mp4" />
@@ -291,12 +291,14 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="p-8 rounded-[2.5rem] liquid-glass border border-white/40 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 group">
-      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-xl shadow-inner flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-white/60">
-        {React.cloneElement(icon, { size: 28 } as any)}
+    <div className="p-6 lg:p-8 rounded-[2rem] lg:rounded-[2.5rem] liquid-glass border border-white/40 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-700 group">
+      <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-xl shadow-inner flex items-center justify-center mb-6 lg:mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-white/60">
+        {React.cloneElement(icon, { size: 24 } as any)}
       </div>
-      <h3 className="text-2xl font-bold mb-4 tracking-tight">{title}</h3>
-      <p className="text-gray-500 text-lg leading-relaxed group-hover:text-gray-700 transition-colors">
+      <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 tracking-tight">
+        {title}
+      </h3>
+      <p className="text-base lg:text-lg text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
         {description}
       </p>
     </div>
@@ -315,12 +317,12 @@ function FeedbackCard({
   avatarUrl: string;
 }) {
   return (
-    <div className="p-10 rounded-[2.5rem] liquid-glass border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 group">
-      <p className="text-gray-600 text-lg italic mb-8 group-hover:text-black transition-colors leading-relaxed">
+    <div className="p-6 lg:p-10 rounded-[2rem] lg:rounded-[2.5rem] liquid-glass border border-white/30 shadow-sm hover:shadow-xl transition-all duration-500 group">
+      <p className="text-base lg:text-lg text-gray-600 italic mb-6 lg:mb-8 group-hover:text-black transition-colors leading-relaxed">
         "{content}"
       </p>
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full overflow-hidden border border-white/50 shadow-sm">
+        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full overflow-hidden border border-white/50 shadow-sm">
           <img
             src={avatarUrl}
             alt={name}
@@ -328,8 +330,8 @@ function FeedbackCard({
           />
         </div>
         <div>
-          <div className="font-bold text-base">{name}</div>
-          <div className="text-gray-400 text-sm">{role}</div>
+          <div className="font-bold text-sm lg:text-base">{name}</div>
+          <div className="text-gray-400 text-xs lg:text-sm">{role}</div>
         </div>
       </div>
     </div>
