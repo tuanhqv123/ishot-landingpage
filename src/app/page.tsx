@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
 import {
   Github,
@@ -10,6 +10,8 @@ import {
   EyeOff,
   Languages,
   Keyboard,
+  Menu,
+  X,
 } from "lucide-react";
 
 const AppleIcon = ({
@@ -33,6 +35,7 @@ const AppleIcon = ({
 
 export default function LandingPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -61,7 +64,9 @@ export default function LandingPage() {
             <img src="/icons/icon.png" alt="iShot Logo" className="w-8 h-8" />
             <span className="font-semibold text-xl tracking-tight">iShot</span>
           </a>
-          <div className="flex items-center gap-6 text-sm font-medium text-gray-600">
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
             <a href="#features" className="hover:text-black transition-colors">
               Features
             </a>
@@ -69,7 +74,35 @@ export default function LandingPage() {
               Feedback
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-white/90 backdrop-blur-2xl border-b border-gray-100 py-6 px-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+            <a
+              href="#features"
+              className="text-lg font-medium text-gray-600 hover:text-black transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Features
+            </a>
+            <a
+              href="#feedback"
+              className="text-lg font-medium text-gray-600 hover:text-black transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Feedback
+            </a>
+          </div>
+        )}
       </nav>
 
       <main>
