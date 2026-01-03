@@ -62,11 +62,11 @@ export default function LandingPage() {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <img src="/icons/icon.png" alt="iShot Logo" className="w-8 h-8" />
-            <span className="font-semibold text-xl tracking-tight">iShot</span>
+            <span className="font-semibold text-2xl tracking-tight">iShot</span>
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <div className="hidden md:flex items-center gap-8 text-md font-medium text-gray-600">
             <a href="#features" className="hover:text-black transition-colors">
               Features
             </a>
@@ -107,60 +107,59 @@ export default function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-center pt-32 pb-20 overflow-hidden">
+        <section className="relative min-h-screen px-6 pt-32 pb-20 overflow-hidden flex items-center">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
           <div
-            className="absolute top-1/2 -right-24 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl -z-10 animate-pulse"
+            className="absolute top-1/2 -right-24 w-96 h-96 bg-white rounded-full blur-3xl -z-10 animate-pulse"
             style={{ animationDelay: "2s" }}
           ></div>
 
-          <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              Capture, Edit,{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">
-                Extract.
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 max-w-md leading-relaxed">
-              The fastest way to capture your screen, edit with precision, and
-              instantly extract text from any where on your Mac.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <button
-                onClick={handleDownload}
-                className="bg-black text-white px-8 lg:px-10 py-4 rounded-2xl font-bold text-base lg:text-lg flex items-center justify-center gap-3 shadow-2xl shadow-black/20 group"
-              >
-                <AppleIcon size={22} className="" />
-                Download for Mac
-              </button>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-center">
+            <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                Capture, Edit,{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">
+                  Extract.
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg lg:text-xl text-gray-500 max-w-md leading-relaxed">
+                The fastest way to capture your screen, edit with precision, and
+                instantly extract text from any where on your Mac.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <button
+                  onClick={handleDownload}
+                  className="bg-black text-white px-8 lg:px-10 py-4 rounded-2xl font-bold text-base lg:text-lg flex items-center justify-center gap-3 shadow-2xl shadow-black/20 group"
+                >
+                  <AppleIcon size={22} className="" />
+                  Download for Mac
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="relative group w-full max-w-[600px] lg:max-w-none mx-auto">
-            <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-[2rem] lg:rounded-[3rem] opacity-20 blur-2xl lg:blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
-            <div className="relative rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl bg-white/30 backdrop-blur-2xl w-full">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className="w-full h-auto block"
-              >
-                <source src="/ishot.mov" type="video/quicktime" />
-                <source src="/ishot.mov" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            <div className="relative group w-full max-w-[600px] lg:max-w-none mx-auto">
+              <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-r from-white via-white to-white rounded-[2rem] lg:rounded-[3rem] opacity-20 blur-2xl lg:blur-3xl group-hover:opacity-30 transition-opacity duration-700"></div>
+              <div className="relative rounded-[1.5rem] lg:rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl bg-white/30 backdrop-blur-3xl w-full">
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-auto block"
+                >
+                  <source src="/ishot.mov" type="video/quicktime" />
+                  <source src="/ishot.mov" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section
-          id="features"
-          className="bg-white py-32 border-y border-gray-100"
-        >
-          <div className="max-w-6xl mx-auto px-6">
+        <section id="features" className="bg-white border-y border-gray-100">
+          <div className="max-w-6xl mx-auto px-6 py-32">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold mb-4">Everything you need.</h2>
               <p className="text-gray-500 text-lg">
